@@ -16,7 +16,9 @@
   },
   "author": "tongsalex",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "three": "^0.117.1"
+  },
   "devDependencies": {
     "@babel/core": "^7.6.4",
     "@babel/plugin-proposal-optional-chaining": "^7.7.5",

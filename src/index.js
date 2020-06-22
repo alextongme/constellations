@@ -1,5 +1,6 @@
 import "./styles/reset.css";
 import "./styles/index.css";
+import * as THREE from 'three';
 import canvasExample from "./scripts/canvas";
 
 window.addEventListener("DOMContentLoaded", main);

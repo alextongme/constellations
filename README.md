@@ -11,6 +11,7 @@
 - Create an interactive menu for the user to navigate through my portfolio of effects
 
 ## Wireframes
+![wireframe](./src/images/readme/wireframe.png)
 
 ## Architecture and Technology
 ### Architecture (Foundation of app)

@@ -1,7 +1,7 @@
 {
-  "name": "js_project_skeleton",
+  "name": "js_project",
   "version": "1.0.0",
-  "description": "skeleton for new JS project",
+  "description": "Showcase animations and transitions built using traditional HTML, CSS, Javascript, and 4 external libraries.",
   "main": "index.js",
   "browserslist": [
     "last 1 version",
@@ -14,7 +14,7 @@
     "webpack:watch": "webpack --watch --config webpack.dev.js",
     "webpack:build": "webpack --config webpack.prod.js  --optimize-minimize"
   },
-  "author": "mrcjbradley",
+  "author": "tongsalex",
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {

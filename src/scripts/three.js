@@ -21,7 +21,7 @@ let moon = new THREE.Mesh(moonGeom, moonMate);
 scene.add( moon );
 
 // blood moon
-let bloodMoonGeom = new THREE.SphereGeometry(1.3, 30,30);
+let bloodMoonGeom = new THREE.SphereGeometry(0.5, 30,30);
 let bloodMoonText = new THREE.TextureLoader().load("src/images/mars.jpg");
 bloodMoonText.wrapS = bloodMoonText.wrapT = THREE.MirroredRepeatWrapping;
 bloodMoonText.repeat.set( 1.3, 1 );
@@ -43,7 +43,7 @@ function getRandom() {
   return num;
 }
 
-for (let i = 0; i < 700; i++) {
+for (let i = 0; i < 300; i++) {
   let starGeom = new THREE.SphereGeometry(0.012, 10, 10);
   let starMate = new THREE.MeshBasicMaterial( { color: 0xffffff  } );
   let star = new THREE.Mesh(starGeom, starMate);
@@ -52,6 +52,7 @@ for (let i = 0; i < 700; i++) {
   stars.push( star );
 }
 
+//add in our stars
 for (let j = 0; j < stars.length; j++) {
   scene.add( stars[j] );
 }
@@ -83,14 +84,40 @@ for (let m = 0; m < asteroids.length; m++) {
 }
 
 // set camera positions
+
 let controls = new OrbitControls( camera, renderer.domElement );
-camera.position.set( 0, 0, 13 );
+camera.position.set( 0, 0, 3 );
+
 controls.update();
-controls.autoRotate = true;
-controls.autoRotateSpeed = 0.6;
+controls.enableZoom = false;
+// controls.autoRotate = true;
+// controls.autoRotateSpeed = 0.6;
 
 // star twinkling starting point
 let lightness = 0;
+
+// //
+function updateCamera(ev) {
+
+  // camera.position.x += 0.1;
+  // camera.position.y -= 0.05;
+  if(camera.position.x < 5) {
+    camera.position.x += 0.05;
+  }
+
+  if(controls.target.x < 7) {
+    controls.target.x += 0.08;
+  }
+  if(controls.target.y > -3) {
+    controls.target.y -= 0.03;
+  }
+
+  if(controls.target.z < 2) {
+    controls.target.z += 0.005;
+  }
+}
+
+window.addEventListener("wheel", updateCamera);
 
 // animate our scene
 function animate() {

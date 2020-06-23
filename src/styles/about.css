@@ -1,3 +1,4 @@
 .about {
     /* background-color: black; */
+    overflow-y: scroll;
 }

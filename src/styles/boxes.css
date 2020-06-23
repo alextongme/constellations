@@ -1,0 +1,13 @@
+.boxes {
+    background-color: blue;
+
+    justify-content: space-evenly;
+    align-items: stretch;
+}
+
+.box {
+    width: 10vw;
+    height: 10vw;
+
+    background-color: green;
+}

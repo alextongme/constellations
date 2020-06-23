@@ -17,6 +17,8 @@
   "author": "tongsalex",
   "license": "ISC",
   "dependencies": {
+    "gsap": "^3.3.4",
+    "paper": "^0.12.11",
     "three": "^0.117.1"
   },
   "devDependencies": {

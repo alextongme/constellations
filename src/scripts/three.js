@@ -97,24 +97,42 @@ controls.enableZoom = false;
 let lightness = 0;
 
 // //
-function updateCamera(ev) {
+function updateCamera(event) {
 
   // camera.position.x += 0.1;
   // camera.position.y -= 0.05;
-  if(camera.position.x < 5) {
-    camera.position.x += 0.05;
+  if(event.deltaY > 0 ) {
+    if(camera.position.x < 5) {
+      camera.position.x += 0.05;
+    }
+  
+    if(controls.target.x < 7) {
+      controls.target.x += 0.08;
+    }
+    if(controls.target.y > -3) {
+      controls.target.y -= 0.03;
+    }
+  
+    if(controls.target.z < 2) {
+      controls.target.z += 0.005;
+    }
+  } else {
+   
+      camera.position.x -= 0.05;
+    
+  
+   
+      controls.target.x -= 0.08;
+    
+    
+      controls.target.y += 0.03;
+    
+  
+  
+      controls.target.z -= 0.005;
+    
   }
-
-  if(controls.target.x < 7) {
-    controls.target.x += 0.08;
-  }
-  if(controls.target.y > -3) {
-    controls.target.y -= 0.03;
-  }
-
-  if(controls.target.z < 2) {
-    controls.target.z += 0.005;
-  }
+  
 }
 
 window.addEventListener("wheel", updateCamera);

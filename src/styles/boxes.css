@@ -1,8 +1,9 @@
 .boxes {
-    background-color: blue;
-
+    background-color: black;
     justify-content: space-evenly;
     align-items: stretch;
+
+    padding-top: 15vh;
 }
 
 .box {

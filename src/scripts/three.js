@@ -20,6 +20,20 @@ let moon = new THREE.Mesh(moonGeom, moonMate);
 
 scene.add( moon );
 
+// blood moon
+let bloodMoonGeom = new THREE.SphereGeometry(1.3, 30,30);
+let bloodMoonText = new THREE.TextureLoader().load("src/images/mars.jpg");
+bloodMoonText.wrapS = bloodMoonText.wrapT = THREE.MirroredRepeatWrapping;
+bloodMoonText.repeat.set( 1.3, 1 );
+let bloodMoonMate = new THREE.MeshBasicMaterial( { map: bloodMoonText } );
+let bloodMoon = new THREE.Mesh(bloodMoonGeom, bloodMoonMate);
+
+bloodMoon.translateX(7);
+bloodMoon.translateY(-3);
+bloodMoon.translateZ(2);
+
+scene.add( bloodMoon );
+
 // make some stars
 let stars = [];
 
@@ -31,10 +45,7 @@ function getRandom() {
 
 for (let i = 0; i < 700; i++) {
   let starGeom = new THREE.SphereGeometry(0.012, 10, 10);
-  let starMate = new THREE.MeshBasicMaterial( { 
-    color: 0xFFFFFF,
-    // wireframe: true
-   } );
+  let starMate = new THREE.MeshBasicMaterial( { color: 0xffffff  } );
   let star = new THREE.Mesh(starGeom, starMate);
   star.position.set( getRandom(), getRandom(), getRandom() );
   // star.material.side = THREE.DoubleSide;
@@ -48,8 +59,8 @@ for (let j = 0; j < stars.length; j++) {
 // add some asteroids
 let asteroids = [];
 
-for (let i = 0; i < 70; i++) {
-  let size = Math.random() * 0.2;
+for (let i = 0; i < 10; i++) {
+  let size = Math.random() * 0.15;
   let asteroidGeom = new THREE.DodecahedronGeometry(size,1);
   asteroidGeom.vertices.forEach(function(v){
     v.x += (0-Math.random()*(size/4));
@@ -87,13 +98,18 @@ function animate() {
   moon.rotation.x -= 0.001;
   moon.rotation.y -= 0.001;
 
+  // bloodMoon rotation
+  bloodMoon.rotation.x -= 0.005;
+  // bloodMoon.rotation.y -= 0.005;
+  bloodMoon.rotation.z -= 0.005;
+
   // star rotation and twinkling
   for (let k = 0; k < stars.length; k++) {
     let star = stars[k];
     star.rotation.x -= 0.01;
     star.rotation.y -= 0.01;
     lightness > 100 ? lightness = 0 : lightness += 0.4;
-    star.material.color = new THREE.Color("hsl(255, 100%, " + lightness + "%)");
+    star.material.color = new THREE.Color("hsl(0, 100%, " + lightness + "%)");
   }
 
   // asteroids movement

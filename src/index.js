@@ -5,6 +5,7 @@ import "./styles/boxes.css"
 import "./styles/random.css"
 
 import "./scripts/three";
+// import "./scripts/scroll";
 
 "use strict";
 

@@ -11,7 +11,7 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 document.querySelector(".about").append(renderer.domElement);
 
 // make a moon
-let moonGeom = new THREE.SphereGeometry(1, 30,30);
+let moonGeom = new THREE.SphereGeometry(0.3, 30,30);
 let moonText = new THREE.TextureLoader().load("src/images/moon.png");
 moonText.wrapS = moonText.wrapT = THREE.MirroredRepeatWrapping;
 moonText.repeat.set( 2, 2 );
@@ -21,18 +21,35 @@ let moon = new THREE.Mesh(moonGeom, moonMate);
 scene.add( moon );
 
 // blood moon
-let bloodMoonGeom = new THREE.SphereGeometry(0.5, 30,30);
+let bloodMoonGeom = new THREE.SphereGeometry(2, 30,30);
 let bloodMoonText = new THREE.TextureLoader().load("src/images/mars.jpg");
 bloodMoonText.wrapS = bloodMoonText.wrapT = THREE.MirroredRepeatWrapping;
 bloodMoonText.repeat.set( 1.3, 1 );
 let bloodMoonMate = new THREE.MeshBasicMaterial( { map: bloodMoonText } );
 let bloodMoon = new THREE.Mesh(bloodMoonGeom, bloodMoonMate);
 
-bloodMoon.translateX(7);
+bloodMoon.translateX(9);
 bloodMoon.translateY(-3);
-bloodMoon.translateZ(2);
+bloodMoon.translateZ(8);
 
 scene.add( bloodMoon );
+
+// blue planet
+let plutoGeom = new THREE.SphereGeometry(0.8, 10,10);
+// let plutoText = new THREE.TextureLoader().load("src/images/mars.jpg");
+// bloodMoonText.wrapS = bloodMoonText.wrapT = THREE.MirroredRepeatWrapping;
+// bloodMoonText.repeat.set( 1.3, 1 );
+let plutoMate = new THREE.MeshBasicMaterial( { 
+  color: 0x0000FF,
+  wireframe: true
+ } );
+let pluto = new THREE.Mesh(plutoGeom, plutoMate);
+
+pluto.translateX(-9);
+pluto.translateY(3);
+pluto.translateZ(-2);
+
+scene.add( pluto);
 
 // make some stars
 let stars = [];
@@ -43,7 +60,7 @@ function getRandom() {
   return num;
 }
 
-for (let i = 0; i < 300; i++) {
+for (let i = 0; i < 1000; i++) {
   let starGeom = new THREE.SphereGeometry(0.012, 10, 10);
   let starMate = new THREE.MeshBasicMaterial( { color: 0xffffff  } );
   let star = new THREE.Mesh(starGeom, starMate);
@@ -60,7 +77,7 @@ for (let j = 0; j < stars.length; j++) {
 // add some asteroids
 let asteroids = [];
 
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 50; i++) {
   let size = Math.random() * 0.15;
   let asteroidGeom = new THREE.DodecahedronGeometry(size,1);
   asteroidGeom.vertices.forEach(function(v){
@@ -86,17 +103,17 @@ for (let m = 0; m < asteroids.length; m++) {
 // set camera positions
 
 let controls = new OrbitControls( camera, renderer.domElement );
-camera.position.set( 0, 0, 3 );
+camera.position.set( 0, 0, 1 );
 
 controls.update();
 controls.enableZoom = false;
-// controls.autoRotate = true;
-// controls.autoRotateSpeed = 0.6;
+controls.autoRotate = true;
+controls.autoRotateSpeed = 0.6;
 
 // star twinkling starting point
 let lightness = 0;
 
-// //
+// adding in scroll feature, to switch camera location on planets when scrolling
 function updateCamera(event) {
 
   // camera.position.x += 0.1;
@@ -135,7 +152,7 @@ function updateCamera(event) {
   
 }
 
-window.addEventListener("wheel", updateCamera);
+// window.addEventListener("wheel", updateCamera);
 
 // animate our scene
 function animate() {
@@ -144,24 +161,24 @@ function animate() {
   moon.rotation.y -= 0.001;
 
   // bloodMoon rotation
-  bloodMoon.rotation.x -= 0.005;
+  bloodMoon.rotation.x -= 0.002;
   // bloodMoon.rotation.y -= 0.005;
-  bloodMoon.rotation.z -= 0.005;
+  bloodMoon.rotation.z -= 0.002;
 
   // star rotation and twinkling
-  for (let k = 0; k < stars.length; k++) {
-    let star = stars[k];
-    star.rotation.x -= 0.01;
-    star.rotation.y -= 0.01;
-    lightness > 100 ? lightness = 0 : lightness += 0.4;
-    star.material.color = new THREE.Color("hsl(0, 100%, " + lightness + "%)");
-  }
+  // for (let k = 0; k < stars.length; k++) {
+  //   let star = stars[k];
+  //   star.rotation.x -= 0.01;
+  //   star.rotation.y -= 0.01;
+  //   lightness > 100 ? lightness = 0 : lightness += 0.4;
+  //   star.material.color = new THREE.Color("hsl(0, 100%, " + lightness + "%);
+  // }
 
   // asteroids movement
   for (let l = 0; l < asteroids.length; l++) {
     let asteroid = asteroids[l];
-    asteroid.rotation.x -= 0.001;
-    asteroid.rotation.y -= 0.001;
+    // asteroid.rotation.x -= 0.001;
+    // asteroid.rotation.y -= 0.001;
 
     if(l % 3 === 0) {
       asteroid.translateZ(0.008);
@@ -178,3 +195,26 @@ function animate() {
 }
 
 animate();
+
+window.onhashchange = function(){
+  for (let j = 0; j < stars.length; j++) {
+    stars[j].dispose();
+  }
+  for (let m = 0; m < asteroids.length; m++) {
+    asteroids[m].dispose()
+  }
+  pluto.dispose();
+  plutoText.dispose();
+  plutoMate.dispose();
+
+  moon.dispose();
+  moonMate.dispose();
+  moonText.dispose();
+
+  bloodMoon.dispose();
+  bloodMoonText.dispose();
+  bloodMoonMate.dispose();
+
+  scene.dispose();
+  renderer.dispose();
+};

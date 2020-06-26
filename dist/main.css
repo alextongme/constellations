@@ -50,7 +50,8 @@ body{overflow:hidden}.navbar{position:fixed;width:100%;height:15vh;box-sizing:bo
 
 .about {
     /* background-color: black; */
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
+    overflow: none;
 }
 .boxes {
     background-color: black;

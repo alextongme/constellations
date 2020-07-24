@@ -4,38 +4,62 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <meta name="description" content="A Javascript and Three.js application modeling space created by Alex Tong.">
+    <meta property="og:title" content="constellations" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="tongsalex.com/constellations" />
+    <meta property="og:image" content="src/images/constellations" />
+    <meta property="og:description" content="A Javascript and Three.js application modeling space created by Alex Tong."" />
+    <meta property="og:site_name" content="constellations" />
+
+    <link rel='icon' type='image/x-icon' href='./dist/favicon.ico' />
     <link rel="stylesheet" href="./dist/main.css" />
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <title>Space Scroll</title>
+    <title>constellations</title>
   </head>
 
   <body>
     <nav class="navbar">
       <h1 class="navbar__logo">constellations with three.js</h1>
-
-      <div>
-        <!-- <a class="navbar__links" href="#about"><span>about</span></a>
-        <a class="navbar__links" href="#scroll"><span>scroll</span></a> -->
-        <!-- <a class="navbar__links" href="#random"><span>random</span></a> -->
-      </div>
+      <h1 class="navbar__logo">move camera with arrow keys / change angle by dragging center of screen with mouse</h1>
     </nav>
 
     <div class="main">
       <div class="about page visible">
         
       </div>
-
+<!-- 
       <div class="scroll page">
         <div class="box"></div>
         <div class="box"></div>
         <div class="box"></div>
         <div class="box"></div>
-      </div>
+      </div> -->
 
       <div class="random page">
         <canvas id="random" ></canvas>
       </div>
     </div>
+
+    <section class="footer">
+      <a href="http://tongsalex.com" target="_blank">made by alex tong</a>
+
+      <div class="footer__right">
+        <a href='http://www.github.com/tongsalex/constellations' target="_blank">
+        <img class="footer__icon" src='./src/images/icons/github.png' alt='github' className="button hover-shadow" />
+        </a>
+        <a href='http://www.linkedin.com/in/tongsalex' target="_blank">
+          <img class="footer__icon" src='./src/images/icons/linkedin.png' alt='linkedin' />
+        </a>
+        <a href='http://angel.co/tongsalex' target="_blank">
+          <img class="footer__icon" src='./src/images/icons/angellist.png' alt='angellist' />
+        </a>
+        <a href='http://medium.com/@tongsalex' target="_blank">
+          <img class="footer__icon" src='./src/images/icons/medium.png' alt='medium' />
+        </a>
+      </div>
+    </section>
 
     <script src="./dist/main.js"></script>
   </body>

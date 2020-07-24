@@ -31,3 +31,8 @@
 * Day 3
   * Check for bugs
   * Implement user interactivity to move around in space
+
+
+Instructions
+1. Run "npm install"
+2. Run "npm start"

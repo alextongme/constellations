@@ -56,7 +56,7 @@ body {
   box-sizing: border-box;
 }
 
-.footer {
+.foot {
   bottom: 0;
   position: fixed;
   width: 100%;
@@ -74,27 +74,27 @@ body {
   z-index: 1;
 }
 
-.footer a {
+.foot a {
   color: white;
   cursor: pointer;
   text-decoration: none;
 }
 
-.footer a:hover {
+.foot a:hover {
   color: green;
 }
 
-.footer__right {
+.foot__right {
   width: 15%;
   display: flex;
   justify-content: space-evenly;
 }
 
-.footer__icon {
+.foot__icon {
   opacity: 0.5;
   height: 2.5vh;
 }
 
-.footer__icon:hover {
+.foot__icon:hover {
   opacity: 1;
 }

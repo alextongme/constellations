@@ -19,7 +19,7 @@ body {
   font-family: 'Raleway', sans-serif;
   font-size: 1.3em;
   font-weight: 200;
-  
+  z-index: 1;
 }
 
 .navbar__logo {
@@ -71,6 +71,7 @@ body {
   font-family: 'Raleway', sans-serif;
   font-weight: 200;
   font-size: 1.3em;
+  z-index: 1;
 }
 
 .footer a {

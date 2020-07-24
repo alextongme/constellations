@@ -37,3 +37,4 @@ Instructions
 1. Run "npm install"
 2. Run "npm start" to see in local browser
 3. (To update github live link), run "npm run webpack:build"
+4. git add, commit & push to github

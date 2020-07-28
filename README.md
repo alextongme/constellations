@@ -12,6 +12,7 @@
 <p align="center">
 	<img width="800" src="https://github.com/tongsalex/constellations/blob/master/images/rotation.gif?raw=true"/>
 </p>
+
 - Users can change the position of the camera using the arrow keys on their keyboard.
 <p align="center">
 	<img width="800" src="https://github.com/tongsalex/constellations/blob/master/images/move.gif?raw=true"/>

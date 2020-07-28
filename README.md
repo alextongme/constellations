@@ -1,10 +1,21 @@
 # constellations
+
+<p align="center">
+	<img width="800" src="https://github.com/tongsalex/constellations/blob/master/images/welcome.gif?raw=true"/>
+</p>
+
 ## Space in the browser.
 * I wanted to build a model of space for this project while exploring and utilizing the capabiltiies of Three.js to help me understand 3D renderings better so that I may utilize these technologies in the future.
 
 ## Features
 - Users can look around 360 degrees by dragging the center of the screen in the direction they wish to view.
+<p align="center">
+	<img width="800" src="https://github.com/tongsalex/constellations/blob/master/images/rotation.gif?raw=true"/>
+</p>
 - Users can change the position of the camera using the arrow keys on their keyboard.
+<p align="center">
+	<img width="800" src="https://github.com/tongsalex/constellations/blob/master/images/move.gif?raw=true"/>
+</p>
 
 ## Functionality and MVPs
 - Showcase 3D rendering of space

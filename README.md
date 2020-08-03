@@ -1,6 +1,6 @@
 # constellations
 ### Space in the browser.
-* I wanted to build a model of space for this project while exploring and utilizing the capabiltiies of Three.js to help me understand 3D renderings better so that I may utilize these technologies in the future.
+I wanted to build a 3D model of space for this project while exploring and utilizing the capabiltiies of Three.js to help me understand 3D renderings better so that I may utilize these technologies in the future on other projects.
 <p align="center">
 	<img width="800" src="https://github.com/tongsalex/constellations/blob/master/images/welcome.gif?raw=true"/>
 </p>

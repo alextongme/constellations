@@ -1,6 +1,6 @@
 # constellations
 ## Live Link
-http://tongsalex.com/constellations
+[tongsalex.com/constellations](http://tongsalex.com/constellations)
 
 ## Space in the browser.
 I wanted to build a 3D model of space for this project while exploring and utilizing the capabiltiies of Three.js to help me understand 3D renderings better so that I may utilize these technologies in the future on other projects.

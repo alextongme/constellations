@@ -1,45 +1,20 @@
 {
-  "name": "js_project",
-  "version": "1.0.0",
-  "description": "Showcase animations and transitions built using traditional HTML, CSS, Javascript, and 4 external libraries.",
-  "main": "index.js",
-  "browserslist": [
-    "last 1 version",
-    "> 1%",
-    "maintained node versions",
-    "not dead"
-  ],
+  "name": "constellations",
+  "version": "2.0.0",
+  "description": "Interactive 3D constellation visualization built with Three.js",
+  "type": "module",
   "scripts": {
-    "start": "webpack-dev-server --config webpack.dev.js",
-    "webpack:watch": "webpack --watch --config webpack.dev.js",
-    "webpack:build": "webpack --config webpack.prod.js  --optimize-minimize"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
-  "author": "tongsalex",
+  "author": "alextongme",
   "license": "ISC",
   "dependencies": {
-    "gsap": "^3.3.4",
-    "paper": "^0.12.11",
-    "three": "^0.117.1"
+    "gsap": "^3.12.5",
+    "three": "^0.170.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.3",
-    "@babel/plugin-proposal-optional-chaining": "^7.10.3",
-    "@babel/preset-env": "^7.10.3",
-    "autoprefixer": "^9.8.3",
-    "babel-loader": "^8.1.0",
-    "css-loader": "^3.6.0",
-    "fibers": "^4.0.3",
-    "file-loader": "^5.1.0",
-    "mini-css-extract-plugin": "^0.8.2",
-    "node-sass": "^4.14.1",
-    "postcss-loader": "^3.0.0",
-    "sass": "^1.26.9",
-    "sass-loader": "^8.0.2",
-    "style-loader": "^1.2.1",
-    "url-loader": "^3.0.0",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0",
-    "webpack-merge": "^4.2.2"
+    "vite": "^6.2.0"
   }
 }

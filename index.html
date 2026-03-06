@@ -34,7 +34,8 @@
         </div>
       </nav>
 
-      <main class="hud__center">
+      <main class="hud__center" id="hud-center">
+        <button class="hud__dismiss" id="hud-dismiss" aria-label="Dismiss overlay">✕</button>
         <div class="hud__hero">
           <p class="hud__label">THREE.JS VISUALIZATION</p>
           <h1 class="hud__headline">Navigate the<br />cosmic void</h1>
@@ -57,6 +58,7 @@
       <footer class="hud__footer">
         <div class="hud__footer-left">
           <span class="hud__coord" id="coord-display">0.00 / 0.00 / 1.00</span>
+          <label class="hud__speed"><span class="hud__speed-label">SPD</span><input type="range" id="speed-slider" min="1" max="100" value="20" class="hud__speed-slider" /></label>
         </div>
         <div class="hud__footer-center">
           <span class="hud__credit">built by <a href="https://alextong.me/" target="_blank" rel="noopener">alex tong</a></span>

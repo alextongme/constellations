@@ -77,9 +77,39 @@ export function createScene(container) {
   // Coordinate display
   const coordDisplay = document.getElementById('coord-display');
 
+  // Arrow key / WASD flying
+  const keys = {};
+  const flySpeed = 0.08;
+
+  window.addEventListener('keydown', (e) => { keys[e.code] = true; });
+  window.addEventListener('keyup', (e) => { keys[e.code] = false; });
+
+  function handleFlyControls() {
+    const direction = new THREE.Vector3();
+    camera.getWorldDirection(direction);
+    const right = new THREE.Vector3().crossVectors(direction, camera.up).normalize();
+
+    if (keys['ArrowUp'] || keys['KeyW']) camera.position.addScaledVector(direction, flySpeed);
+    if (keys['ArrowDown'] || keys['KeyS']) camera.position.addScaledVector(direction, -flySpeed);
+    if (keys['ArrowLeft'] || keys['KeyA']) camera.position.addScaledVector(right, -flySpeed);
+    if (keys['ArrowRight'] || keys['KeyD']) camera.position.addScaledVector(right, flySpeed);
+    if (keys['Space']) camera.position.y += flySpeed;
+    if (keys['ShiftLeft'] || keys['ShiftRight']) camera.position.y -= flySpeed;
+
+    // Move orbit target with camera so controls stay centered
+    if (keys['ArrowUp'] || keys['KeyW']) controls.target.addScaledVector(direction, flySpeed);
+    if (keys['ArrowDown'] || keys['KeyS']) controls.target.addScaledVector(direction, -flySpeed);
+    if (keys['ArrowLeft'] || keys['KeyA']) controls.target.addScaledVector(right, -flySpeed);
+    if (keys['ArrowRight'] || keys['KeyD']) controls.target.addScaledVector(right, flySpeed);
+    if (keys['Space']) controls.target.y += flySpeed;
+    if (keys['ShiftLeft'] || keys['ShiftRight']) controls.target.y -= flySpeed;
+  }
+
   // Animation loop
   function animate() {
     requestAnimationFrame(animate);
+
+    handleFlyControls();
 
     moon.rotation.x -= 0.001;
     moon.rotation.y -= 0.001;

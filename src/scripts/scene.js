@@ -174,8 +174,9 @@ export function createScene(container) {
   let flySpeed = 0.2;
   if (speedSlider) speedSlider.addEventListener('input', (e) => { flySpeed = e.target.value / 100; });
 
-  window.addEventListener('keydown', (e) => { keys[e.code] = true; });
-  window.addEventListener('keyup', (e) => { keys[e.code] = false; });
+  const flyKeys = new Set(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','KeyW','KeyA','KeyS','KeyD','Space']);
+  window.addEventListener('keydown', (e) => { if (flyKeys.has(e.code)) e.preventDefault(); keys[e.code] = true; });
+  window.addEventListener('keyup', (e) => { if (flyKeys.has(e.code)) e.preventDefault(); keys[e.code] = false; });
 
   function handleFlyControls() {
     const direction = new THREE.Vector3();
@@ -187,14 +188,12 @@ export function createScene(container) {
     if (keys['ArrowLeft'] || keys['KeyA']) camera.position.addScaledVector(right, -flySpeed);
     if (keys['ArrowRight'] || keys['KeyD']) camera.position.addScaledVector(right, flySpeed);
     if (keys['Space']) camera.position.y += flySpeed;
-    if (keys['ShiftLeft'] || keys['ShiftRight']) camera.position.y -= flySpeed;
 
     if (keys['ArrowUp'] || keys['KeyW']) controls.target.addScaledVector(direction, flySpeed);
     if (keys['ArrowDown'] || keys['KeyS']) controls.target.addScaledVector(direction, -flySpeed);
     if (keys['ArrowLeft'] || keys['KeyA']) controls.target.addScaledVector(right, -flySpeed);
     if (keys['ArrowRight'] || keys['KeyD']) controls.target.addScaledVector(right, flySpeed);
     if (keys['Space']) controls.target.y += flySpeed;
-    if (keys['ShiftLeft'] || keys['ShiftRight']) controls.target.y -= flySpeed;
   }
 
   // Animation loop
